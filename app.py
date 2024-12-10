@@ -3,7 +3,6 @@ import requests
 
 app = Flask(__name__)
 
-# Замените 'YOUR_API_KEY' на ваш API-ключ AccuWeather
 API_KEY = 'C4CLBymeUAuGVpr6F3pDMbiLF0S5VxAB'
 BASE_URL = 'http://dataservice.accuweather.com/'
 
@@ -44,15 +43,12 @@ def index():
                 start_temp = start_weather['Temperature']['Metric']['Value']
                 end_temp = end_weather['Temperature']['Metric']['Value']
 
-                # Проверяем наличие данных о ветре
                 start_wind_speed = start_weather.get('Wind', {}).get('Speed', {}).get('Metric', {}).get('Value', 0)
                 end_wind_speed = end_weather.get('Wind', {}).get('Speed', {}).get('Metric', {}).get('Value', 0)
 
-                # Получаем вероятность осадков
                 start_precipitation_prob = 100 if start_weather.get('HasPrecipitation') else 0
                 end_precipitation_prob = 100 if end_weather.get('HasPrecipitation') else 0
 
-                # Используем дополнительные параметры для вывода информации
                 start_condition_text = start_weather.get('WeatherText', 'Нет данных')
                 end_condition_text = end_weather.get('WeatherText', 'Нет данных')
 
