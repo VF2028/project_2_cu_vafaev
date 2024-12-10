@@ -2,24 +2,37 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Прогноз погоды</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <form method="POST">
-        <h1>Прогноз погоды для маршрута</h1>
+    <div class="container">
+        <header class="header">
+            <h1>Прогноз погоды для маршрута</h1>
+        </header>
 
-        {% if error %}
-            <p class="error">{{ error }}</p>
-        {% endif %}
+        <form method="POST" class="weather-form">
+            {% if error %}
+                <p class="error">{{ error }}</p>
+            {% endif %}
 
-        <label for="start_city">Начальный город:</label>
-        <input type="text" id="start_city" name="start_city" required>
+            <div class="input-group">
+                <label for="start_city">Начальный город:</label>
+                <input type="text" id="start_city" name="start_city" required placeholder="Введите начальный город">
+            </div>
 
-        <label for="end_city">Конечный город:</label>
-        <input type="text" id="end_city" name="end_city" required>
+            <div class="input-group">
+                <label for="end_city">Конечный город:</label>
+                <input type="text" id="end_city" name="end_city" required placeholder="Введите конечный город">
+            </div>
 
-        <button type="submit">Получить прогноз</button>
-    </form>
+            <button type="submit">Получить прогноз</button>
+        </form>
+
+        <footer class="footer">
+            <p>© 2024 Прогноз погоды. Все права защищены.</p>
+        </footer>
+    </div>
 </body>
 </html>
