@@ -3,6 +3,7 @@ import requests
 
 app = Flask(__name__)
 
+
 API_KEY = 'C4CLBymeUAuGVpr6F3pDMbiLF0S5VxAB'
 BASE_URL = 'http://dataservice.accuweather.com/'
 
@@ -46,8 +47,10 @@ def index():
                 start_wind_speed = start_weather.get('Wind', {}).get('Speed', {}).get('Metric', {}).get('Value', 0)
                 end_wind_speed = end_weather.get('Wind', {}).get('Speed', {}).get('Metric', {}).get('Value', 0)
 
+
                 start_precipitation_prob = 100 if start_weather.get('HasPrecipitation') else 0
                 end_precipitation_prob = 100 if end_weather.get('HasPrecipitation') else 0
+
 
                 start_condition_text = start_weather.get('WeatherText', 'Нет данных')
                 end_condition_text = end_weather.get('WeatherText', 'Нет данных')

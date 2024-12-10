@@ -2,22 +2,35 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Результаты прогноза</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <div class="result">
-        <h1>Результаты прогноза погоды</h1>
+    <div class="container result">
+        <header class="header">
+            <h1>Результаты прогноза погоды</h1>
+        </header>
 
-        <h2>Начальный город:</h2>
-        <p>Состояние: {{ start_condition }}</p>
-        <p>Описание: {{ start_condition_text }}</p>
+        <div class="weather-info">
+            <h2>Начальный город:</h2>
+            <div class="weather-card">
+                <p><strong>Состояние:</strong> {{ start_condition }}</p>
+                <p><strong>Описание:</strong> {{ start_condition_text }}</p>
+            </div>
 
-        <h2>Конечный город:</h2>
-        <p>Состояние: {{ end_condition }}</p>
-        <p>Описание: {{ end_condition_text }}</p>
+            <h2>Конечный город:</h2>
+            <div class="weather-card">
+                <p><strong>Состояние:</strong> {{ end_condition }}</p>
+                <p><strong>Описание:</strong> {{ end_condition_text }}</p>
+            </div>
+        </div>
 
-        <a href="/">Назад</a>
+        <a href="/" class="back-link">Назад</a>
+
+        <footer class="footer">
+            <p>© 2024 Прогноз погоды. Все права защищены.</p>
+        </footer>
     </div>
 </body>
 </html>
